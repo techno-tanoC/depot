@@ -1,14 +1,10 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+  <p id="notice"><%= notice %></p>
+<% end %>
 
-<p>
-  <strong>Product:</strong>
-  <%= @line_item.product_id %>
-</p>
-
-<p>
-  <strong>Cart di:</strong>
-  <%= @line_item.cart_di %>
-</p>
-
-<%= link_to 'Edit', edit_line_item_path(@line_item) %> |
-<%= link_to 'Back', line_items_path %>
+<h2>Pragmaticカート</h2>
+<ul>
+  <% @cart.line_items.each do |item| %>
+    <li><%= item.quantity %> &items; <%= item.product.title %></li>
+  <% end %>
+</ul>
