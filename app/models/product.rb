@@ -8,7 +8,7 @@ class Product < ActiveRecord::Base
   validates :title, uniqueness: true
   validates :image_url, allow_blank: true, format: {
     with: %r{\.(gif|jpg|png)}i,
-    message: 'はGIG、JPG、PNG画像のURLでなければなりません'
+    message: 'gif or jpg or png'
   }
 
   private
@@ -16,7 +16,7 @@ class Product < ActiveRecord::Base
       if line_items_empty?
         return true
       else
-        errors.add(:base, '品目が存在します')
+        errors.add(:base, '')
         return false
       end
     end
